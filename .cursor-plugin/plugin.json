@@ -1,0 +1,24 @@
+{
+  "name": "offhand",
+  "displayName": "Offhand",
+  "description": "Connect to your Offhand to-do list to read tasks, add requested tasks, and hand work between your agents.",
+  "author": {
+    "name": "BunnyHop, LLC",
+    "email": "support@offhandapp.com"
+  },
+  "version": "0.1.0",
+  "homepage": "https://offhandapp.com/docs",
+  "license": "MIT",
+  "logo": "assets/logo.png",
+  "keywords": [
+    "offhand",
+    "todo",
+    "tasks",
+    "agents",
+    "handoff",
+    "mcp"
+  ],
+  "category": "productivity",
+  "mcpServers": "./mcp.json",
+  "skills": "./skills/"
+}

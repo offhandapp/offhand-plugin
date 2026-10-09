@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "offhand": {
+      "type": "http",
+      "url": "https://offhandapp.com/mcp"
+    }
+  }
+}
