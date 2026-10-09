@@ -1,0 +1,15 @@
+{
+  "name": "offhand",
+  "description": "Offhand, the to-do list your agents share.",
+  "owner": {
+    "name": "Offhand",
+    "email": "support@offhandapp.com"
+  },
+  "plugins": [
+    {
+      "name": "offhand",
+      "source": "./",
+      "description": "Connect to your Offhand to-do list to read tasks, add requested tasks, and hand work between your agents."
+    }
+  ]
+}
