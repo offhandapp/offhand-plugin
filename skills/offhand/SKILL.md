@@ -19,7 +19,7 @@ A person's own task ends at `need_review` when the agent's work is ready; the pe
 
 For work within an authorized request, `set_task_status` with `in_progress` is how an agent takes a task. The server refuses that claim while another agent is working on it. A successful claim is distinct from merely seeing an assignment.
 
-Work handed from another agent ends at `done` with a one-line result, or `blocked` with what is needed. On such a task, `set_task_status` with `assignTo` transfers responsibility with the report: back to the agent named in `assignedBy`, commonly at `need_review` or `blocked`, or on to another agent within the authorized scope. The receiving agent's status and `agentNote` are its reply. A handoff does not expand the person's authorization or remove required safety confirmations.
+Work handed from another agent ends at `done` with a one-line result, or `blocked` with what is needed. On such a task, `set_task_status` with `assignTo` transfers responsibility with the report: back to the agent named in `assignedBy`, commonly at `need_review` or `blocked`, or on to another agent within the authorized scope. `need_review` on such a task always goes back to the agent named in `assignedBy`, with or without `assignTo`, so that agent can close it. The receiving agent's status and `agentNote` are its reply. A handoff does not expand the person's authorization or remove required safety confirmations.
 
 Work too long for a one-line note travels as a file with the task — its state, the decisions made, and the next steps — so the agent that takes it over can continue.
 

@@ -3,7 +3,8 @@
   "displayName": "Offhand",
   "description": "Connect to your Offhand to-do list to read tasks, add requested tasks, and hand work between your agents.",
   "author": {
-    "name": "BunnyHop, LLC"
+    "name": "Offhand",
+    "url": "https://offhandapp.com"
   },
   "version": "0.1.0",
   "homepage": "https://offhandapp.com/docs",
