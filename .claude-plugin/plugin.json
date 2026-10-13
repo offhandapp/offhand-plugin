@@ -6,7 +6,13 @@
     "name": "Offhand",
     "url": "https://offhandapp.com"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://offhandapp.com/docs",
-  "license": "MIT"
+  "repository": "https://github.com/offhandapp/offhand-plugin",
+  "license": "MIT",
+  "icon": "./assets/logo.png",
+  "documentationUrl": "https://offhandapp.com/docs",
+  "supportUrl": "https://offhandapp.com/support",
+  "privacyPolicyUrl": "https://offhandapp.com/privacy",
+  "termsOfServiceUrl": "https://offhandapp.com/terms"
 }
