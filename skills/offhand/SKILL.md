@@ -13,7 +13,7 @@ Offhand is a to-do list a person shares with their agents. This skill describes 
 - `add_task` adds a task the person asked for or agreed to. Its `assignTo` names another of the person's agents when the person asked to hand that agent work; the title and details carry that request. `assignTo: "me"` assigns it to the caller. An assignment does not guarantee that the receiving client is running or can start immediately.
 - `set_task_status` records where a task stands and a one-line `note` explaining why. The caller's task identifier comes from `list_todos`. The current tool schema describes the available parameters.
 
-A person's own task ends at `need_review` when the agent's work is ready. `done` is accepted only for a task another agent handed to the caller, identified by the caller in `assignedTo` and the other agent in `assignedBy`. Agents cannot rename, reschedule, or delete tasks through these tools. A status update can reopen a task the person already ticked off, so a stale task record is not sufficient evidence that work remains open.
+`done` ticks a task off, the person's own included; on a repeating task it closes that day and moves the task on. It is refused on a task named for another agent. `need_review` is finished work to be seen first: on a task another agent handed over, by that agent, identified in `assignedBy`; on any other, by the person. Agents cannot rename, reschedule, or delete tasks through these tools. A status update can reopen a task the person already ticked off, so a stale task record is not sufficient evidence that work remains open.
 
 ## Handoffs and replies
 

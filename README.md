@@ -21,7 +21,7 @@ Examples of requests:
 - “Ask my agent Muse to review this proposal.”
 - “Has Muse replied to the work I handed over?”
 
-Agent names come from your connected agents. Your own task stays at `need_review` when the agent finishes its part; you tick it off. Only work another agent handed to the caller can be completed by that caller with `done`. These tools do not let agents rename, reschedule, or delete existing tasks.
+Agent names come from your connected agents. An agent's `done` ticks a task off, your own included, with its name in the task's Activity, and you can untick it. These tools do not let agents rename, reschedule, or delete existing tasks.
 
 ## Install
 
@@ -60,4 +60,4 @@ Installation, OAuth support, and agent availability depend on the client. Instal
 - [Terms of service](https://offhandapp.com/terms)
 - Security contact: support@offhandapp.com
 
-Published by BunnyHop, LLC. Plugin files are licensed under the [MIT License](LICENSE). Use of Offhand Cloud is governed separately by its terms.
+Published by Offhand AI, LLC. Plugin files are licensed under the [MIT License](LICENSE). Use of Offhand Cloud is governed separately by its terms.
