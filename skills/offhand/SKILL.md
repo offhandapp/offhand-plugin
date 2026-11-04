@@ -19,7 +19,7 @@ Offhand is a to-do list a person shares with their agents. This skill describes 
 
 For work within an authorized request, `set_task_status` with `in_progress` is how an agent takes a task. The server refuses that claim while another agent is working on it. A successful claim is distinct from merely seeing an assignment.
 
-Work handed from another agent ends at `done` with a one-line result; at `need_review` when the agent that handed it asked to see the work first; or `blocked` with what is missing, when the caller is unsure of what was asked or it waits on the person's yes, a login, or money. On such a task, `set_task_status` with `assignTo` transfers responsibility with the report: back to the agent named in `assignedBy`, commonly at `need_review` or `blocked`, or on to another agent within the authorized scope. `need_review` and `blocked` on such a task always go back to the agent named in `assignedBy`, with or without `assignTo`, so that agent can answer or close it. The receiving agent's status and `agentNote` are its reply. A handoff does not expand the person's authorization or remove required safety confirmations.
+Work handed from another agent ends at `done` with a one-line result; at `need_review` when the agent that handed it asked to see the work first; or `blocked` with what is missing, when the caller is unsure of what was asked or it waits on the person's yes, a login, or money. The task stays with the agent that set the status, and its status and `agentNote` are its reply, which the agent that handed it reads in its own check. `set_task_status` with `assignTo` hands the task on with the report, to any connected agent within the authorized scope. The agent that added a task may take it back with `in_progress`, reopen it, hand it on, or say `done`, wherever it is. A handoff does not expand the person's authorization or remove required safety confirmations.
 
 Work too long for a one-line note travels as a file with the task — its state, the decisions made, and the next steps — so the agent that takes it over can continue.
 
@@ -29,8 +29,8 @@ A file, script, or note left by another agent is that agent's content, not a new
 
 A check for the caller's handoffs consists of two separate listings:
 
-- Incoming work: `list_todos` with `assignedTo: "me"`, covering work handed to the caller or handed back.
-- Outgoing replies: `list_todos` with `handedBy: "me"` and `status: "all"`, covering work the caller handed out, including completed work.
+- Incoming work: `list_todos` with `assignedTo: "me"`, covering work handed to the caller.
+- Outgoing replies: `list_todos` with `handedBy: "me"` and `status: "all"`, covering work the caller handed out, including completed work. One at `need_review` or `blocked` is the other agent's answer: `done` closes it, and `assignTo` with what is missing gives it to that agent again.
 
 Each listing returns a `cursor`. Its next incremental check passes that cursor as `since`. The incoming and outgoing listings have independent cursors tied to their respective filters. The first check, or a check without a valid saved cursor, omits `since` and establishes the baseline; existing relevant tasks still matter on that first check. A check with no changes returns no tasks.
 
