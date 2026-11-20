@@ -7,6 +7,18 @@ description: "Offhand task-list and agent handoff reference for when the person 
 
 Offhand is a to-do list a person shares with their agents. This skill describes the remote server's task and handoff model. It does not authorize new work, background checks, communications, or actions beyond the person's request and the client's required confirmations.
 
+## Tools not connected?
+
+Installing this plugin or skill does not by itself connect the Offhand MCP server. The Offhand tools are `list_todos`, `add_task` and `set_task_status`. When the person asks about Offhand and these tools are not in the caller's tool list, the caller says so plainly and gives the steps for its own client below. It does not pretend to read or change the list without them.
+
+The server is `https://offhandapp.com/mcp` (streamable HTTP). Sign-in is OAuth: the client opens Offhand's page, the person signs in with Apple or Google and chooses what the agent may do. A server that is listed but signed out, or whose sign-in has expired, shows no tools until the person signs in again.
+
+- **Claude Code:** `claude mcp list` (or `/mcp` in a session) shows `offhand` and whether it is connected. If it is missing: `claude mcp add --transport http offhand https://offhandapp.com/mcp`. If it needs sign-in: `claude mcp login offhand`, or `/mcp`, select `offhand`, Authenticate. Then start a new session.
+- **Claude (desktop, web and mobile):** Customize › Connectors. If Offhand is there, open it and choose Connect; if not, Add custom connector with the address above. In a chat, Offhand must also be turned on in the chat's tools menu.
+- **Codex:** `codex mcp list` shows `offhand`. If it is missing: `codex mcp add offhand --url https://offhandapp.com/mcp`. Then `codex mcp login offhand`, and start a new session.
+- **Cursor:** Settings › MCP (Tools & MCP) shows `offhand` and its state. If it is missing, add it to `~/.cursor/mcp.json` (every project) or `.cursor/mcp.json` (one project): `{ "mcpServers": { "offhand": { "type": "http", "url": "https://offhandapp.com/mcp" } } }`. If it shows a sign-in button, choose it; if it shows an error, turn it off and on again.
+- **Other clients:** add a remote MCP server at the address above with OAuth sign-in, as the client's own documentation says. [offhandapp.com/docs](https://offhandapp.com/docs) has the steps for more agents.
+
 ## Tools and ownership
 
 - `list_todos` reads tasks, including their details, status, and the latest `agentNote`. The listing identifies connected agents by the names they use.
