@@ -42,9 +42,17 @@ Connect Offhand by its address, **https://offhandapp.com/mcp**, then sign in to 
   { "mcpServers": { "offhand": { "type": "http", "url": "https://offhandapp.com/mcp" } } }
   ```
 
+- **Codex:** `codex mcp add offhand --url https://offhandapp.com/mcp`, then `codex mcp login offhand`.
+- **Cline:** MCP Servers › Configure, and add to `cline_mcp_settings.json`:
+
+  ```json
+  { "mcpServers": { "offhand": { "type": "streamableHttp", "url": "https://offhandapp.com/mcp" } } }
+  ```
+
+  Then sign in when Cline asks.
 - **Grok Bot, Muse and other agents:** ask the agent to add Offhand as an MCP server at the address above. [offhandapp.com/docs](https://offhandapp.com/docs) has the message to send.
 
-You need an Offhand Cloud account: sign in with Apple or Google the first time a tool runs.
+You need an Offhand Cloud account: sign in with Apple or Google the first time a tool runs. If the agent has the skill but not the tools, the skill's "Tools not connected?" section says how to connect them.
 
 ## Clients and scheduling
 
